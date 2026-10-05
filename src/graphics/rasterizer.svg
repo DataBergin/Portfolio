@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="presentation" focusable="false" aria-hidden="true">
+<!-- sheet frame -->
+<path d="M12 24V12H24M296 12H308V24M12 176V188H24M308 176V188H296" class="dim"/>
+<text x="32" y="21" class="tx">FIG.06</text>
+<text x="290" y="21" class="tx" text-anchor="end">Z-BUFFER</text>
+<line x1="30" y1="34" x2="30" y2="178" class="faint"/>
+<line x1="42" y1="34" x2="42" y2="178" class="faint"/>
+<line x1="54" y1="34" x2="54" y2="178" class="faint"/>
+<line x1="66" y1="34" x2="66" y2="178" class="faint"/>
+<line x1="78" y1="34" x2="78" y2="178" class="faint"/>
+<line x1="90" y1="34" x2="90" y2="178" class="faint"/>
+<line x1="102" y1="34" x2="102" y2="178" class="faint"/>
+<line x1="114" y1="34" x2="114" y2="178" class="faint"/>
+<line x1="126" y1="34" x2="126" y2="178" class="faint"/>
+<line x1="138" y1="34" x2="138" y2="178" class="faint"/>
+<line x1="150" y1="34" x2="150" y2="178" class="faint"/>
+<line x1="162" y1="34" x2="162" y2="178" class="faint"/>
+<line x1="174" y1="34" x2="174" y2="178" class="faint"/>
+<line x1="186" y1="34" x2="186" y2="178" class="faint"/>
+<line x1="198" y1="34" x2="198" y2="178" class="faint"/>
+<line x1="210" y1="34" x2="210" y2="178" class="faint"/>
+<line x1="222" y1="34" x2="222" y2="178" class="faint"/>
+<line x1="234" y1="34" x2="234" y2="178" class="faint"/>
+<line x1="246" y1="34" x2="246" y2="178" class="faint"/>
+<line x1="258" y1="34" x2="258" y2="178" class="faint"/>
+<line x1="270" y1="34" x2="270" y2="178" class="faint"/>
+<line x1="282" y1="34" x2="282" y2="178" class="faint"/>
+<line x1="294" y1="34" x2="294" y2="178" class="faint"/>
+<line x1="30" y1="34" x2="294" y2="34" class="faint"/>
+<line x1="30" y1="46" x2="294" y2="46" class="faint"/>
+<line x1="30" y1="58" x2="294" y2="58" class="faint"/>
+<line x1="30" y1="70" x2="294" y2="70" class="faint"/>
+<line x1="30" y1="82" x2="294" y2="82" class="faint"/>
+<line x1="30" y1="94" x2="294" y2="94" class="faint"/>
+<line x1="30" y1="106" x2="294" y2="106" class="faint"/>
+<line x1="30" y1="118" x2="294" y2="118" class="faint"/>
+<line x1="30" y1="130" x2="294" y2="130" class="faint"/>
+<line x1="30" y1="142" x2="294" y2="142" class="faint"/>
+<line x1="30" y1="154" x2="294" y2="154" class="faint"/>
+<line x1="30" y1="166" x2="294" y2="166" class="faint"/>
+<line x1="30" y1="178" x2="294" y2="178" class="faint"/>
+<!-- far triangle, shaded by interpolation -->
+<path d="M78 142h12v12h-12zM90 142h12v12h-12zM102 142h12v12h-12zM114 142h12v12h-12zM126 142h12v12h-12zM138 142h12v12h-12zM150 142h12v12h-12zM162 142h12v12h-12zM66 154h12v12h-12zM78 154h12v12h-12zM90 154h12v12h-12zM102 154h12v12h-12zM114 154h12v12h-12zM126 154h12v12h-12zM138 154h12v12h-12zM150 154h12v12h-12zM162 154h12v12h-12zM174 154h12v12h-12z" class="solid" opacity="0.22"/>
+<path d="M90 118h12v12h-12zM102 118h12v12h-12zM114 118h12v12h-12zM126 118h12v12h-12zM138 118h12v12h-12zM150 118h12v12h-12zM78 130h12v12h-12zM90 130h12v12h-12zM102 130h12v12h-12zM114 130h12v12h-12zM126 130h12v12h-12zM138 130h12v12h-12zM150 130h12v12h-12zM162 130h12v12h-12z" class="solid" opacity="0.38"/>
+<path d="M114 82h12v12h-12zM126 82h12v12h-12zM114 94h12v12h-12zM126 94h12v12h-12zM102 106h12v12h-12zM114 106h12v12h-12zM126 106h12v12h-12zM138 106h12v12h-12z" class="solid" opacity="0.58"/>
+<path d="M138 58h12v12h-12zM150 58h12v12h-12zM150 70h12v12h-12z" class="solid" opacity="0.82"/>
+<!-- near triangle wins the z-test -->
+<path d="M126 70h12v12h-12zM138 70h12v12h-12zM138 82h12v12h-12zM150 82h12v12h-12zM138 94h12v12h-12zM150 94h12v12h-12zM162 94h12v12h-12zM150 106h12v12h-12zM162 106h12v12h-12zM174 106h12v12h-12zM162 118h12v12h-12zM174 118h12v12h-12zM174 130h12v12h-12zM186 130h12v12h-12zM174 142h12v12h-12zM186 142h12v12h-12zM198 142h12v12h-12zM186 154h12v12h-12zM198 154h12v12h-12z" class="solid2" opacity="0.28"/>
+<path d="M162 82h12v12h-12zM174 82h12v12h-12zM186 82h12v12h-12zM174 94h12v12h-12zM186 94h12v12h-12zM198 94h12v12h-12zM186 106h12v12h-12zM198 106h12v12h-12zM186 118h12v12h-12zM198 118h12v12h-12zM210 118h12v12h-12zM198 130h12v12h-12zM210 130h12v12h-12zM222 130h12v12h-12zM210 142h12v12h-12z" class="solid2" opacity="0.46"/>
+<path d="M198 82h12v12h-12zM210 82h12v12h-12zM210 94h12v12h-12zM222 94h12v12h-12zM210 106h12v12h-12zM222 106h12v12h-12zM234 106h12v12h-12zM222 118h12v12h-12zM234 118h12v12h-12zM246 118h12v12h-12zM234 130h12v12h-12z" class="solid2" opacity="0.66"/>
+<path d="M234 94h12v12h-12zM246 94h12v12h-12zM258 94h12v12h-12zM270 94h12v12h-12zM246 106h12v12h-12zM258 106h12v12h-12z" class="solid2" opacity="0.9"/>
+<!-- edges and vertices -->
+<polygon points="54,172 150,46 208,166" class="ln"/>
+<polygon points="122,70 282,100 196,176" class="ln2"/>
+<rect x="51.5" y="169.5" width="5" height="5" class="node"/>
+<rect x="147.5" y="43.5" width="5" height="5" class="node"/>
+<rect x="205.5" y="163.5" width="5" height="5" class="node"/>
+<rect x="119.5" y="67.5" width="5" height="5" class="node2"/>
+<rect x="279.5" y="97.5" width="5" height="5" class="node2"/>
+<rect x="193.5" y="173.5" width="5" height="5" class="node2"/>
+</svg>

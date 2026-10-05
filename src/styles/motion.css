@@ -1,0 +1,22 @@
+/* Imported last so these rules win over the component styles. */
+
+/* Without JavaScript nothing reveals the sections, so show them. */
+@media (scripting: none) {
+  .project-card,
+  .about-section,
+  .contact-section {
+    opacity: 1;
+    transform: none;
+  }
+  .card-art .grow { transform: none; }
+}
+
+/* One iteration at ~0ms: infinite animations settle on their end state instead of flickering. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

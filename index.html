@@ -5,16 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jack | CS Student & Aspiring Data Scientist</title>
   <meta name="description" content="Computer science student and aspiring data scientist portfolio showcasing hand coded and AI-assisted projects.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0a0b0f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jack">
+  <meta property="og:title" content="Jack | CS Student & Aspiring Data Scientist">
+  <meta property="og:description" content="I build things by hand. I build things with AI. Here's both.">
+  <meta property="og:url" content="https://databergin.vercel.app/">
+  <meta property="og:image" content="https://databergin.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="JACK split in two: JA in forge orange over a blueprint grid, CK in violet and cyan over circuit traces.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <!-- shared icons, drawn with <use href="#i-name"> -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-hammer" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  </svg>
 
   <!-- ===== HERO ===== -->
   <header id="hero">
-    <canvas id="heroCanvas"></canvas>
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-forge"></div>
+      <div class="hero-circuit"></div>
+      <div class="hero-seam"></div>
+    </div>
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-content">
       <h1 class="hero-name"><span class="forge-half">JA</span><span class="circuit-half">CK</span></h1>
       <p class="hero-subtitle">// CS student & aspiring data scientist</p>
@@ -31,14 +57,17 @@
         </div>
       </div>
       <a href="#about" class="scroll-cta" aria-label="Scroll down">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
       </a>
     </div>
   </header>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="about-section">
-    <div class="terminal">
+  <main>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <h2 id="about-title" class="sr-only">About</h2>
+      <div class="terminal">
       <div class="terminal-header">
         <span class="terminal-dot red"></span>
         <span class="terminal-dot yellow"></span>
@@ -47,55 +76,61 @@
       </div>
       <div class="terminal-body" id="terminalBody"></div>
     </div>
-    <div class="skills-grid">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">TypeScript</span>
-      <span class="skill-tag">C</span>
-      <span class="skill-tag">React</span>
-      <span class="skill-tag">FastAPI</span>
-      <span class="skill-tag">PostgreSQL</span>
-      <span class="skill-tag">SQLAlchemy</span>
-      <span class="skill-tag">Tailwind CSS</span>
-      <span class="skill-tag">Vite</span>
-      <span class="skill-tag">Vercel</span>
-      <span class="skill-tag">Claude AI</span>
-      <span class="skill-tag">Chrome Extensions</span>
-      <span class="skill-tag">REST APIs</span>
-      <span class="skill-tag">Git</span>
-    </div>
-  </section>
+      <ul class="skills-grid" aria-label="Skills">
+        <li class="skill-tag">Python</li>
+        <li class="skill-tag">JavaScript</li>
+        <li class="skill-tag">TypeScript</li>
+        <li class="skill-tag">C</li>
+        <li class="skill-tag">React</li>
+        <li class="skill-tag">FastAPI</li>
+        <li class="skill-tag">PostgreSQL</li>
+        <li class="skill-tag">SQLAlchemy</li>
+        <li class="skill-tag">Tailwind CSS</li>
+        <li class="skill-tag">Vite</li>
+        <li class="skill-tag">Vercel</li>
+        <li class="skill-tag">Claude AI</li>
+        <li class="skill-tag">Chrome Extensions</li>
+        <li class="skill-tag">REST APIs</li>
+        <li class="skill-tag">Git</li>
+      </ul>
+    </section>
 
-  <!-- ===== FILTER BAR ===== -->
-  <nav id="filterBar" class="filter-bar">
-    <button class="filter-btn active" data-filter="all">
-      All <span class="filter-count">9</span>
-    </button>
-    <button class="filter-btn forge-btn" data-filter="forge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      HandCoded <span class="filter-count">4</span>
-    </button>
-    <button class="filter-btn circuit-btn" data-filter="circuit">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-      AI-Assisted <span class="filter-count">5</span>
-    </button>
-  </nav>
+    <div class="seam-divider" aria-hidden="true"></div>
 
-  <!-- ===== PROJECTS ===== -->
-  <div class="section-label">
-    <h2>Projects</h2>
-    <p>From C to AI-powered agents</p>
-  </div>
+    <!-- ===== WORK ===== -->
+    <section class="work" aria-labelledby="work-title">
 
-  <section id="projects" class="projects-section">
+      <nav id="filterBar" class="filter-bar" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">
+          All <span class="filter-count">9</span>
+        </button>
+        <button class="filter-btn forge-btn" data-filter="forge" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg>
+          HandCoded <span class="filter-count">4</span>
+        </button>
+        <button class="filter-btn circuit-btn" data-filter="circuit" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+          AI-Assisted <span class="filter-count">5</span>
+        </button>
+      </nav>
 
-    <!-- 1. RetroStockPredictor -->
+      <div class="section-label">
+        <h2 id="work-title">Projects</h2>
+        <p>From C to AI-powered agents</p>
+      </div>
+
+      <div id="projects" class="projects-section">
+
+    <!-- RetroStockPredictor -->
     <article class="project-card circuit-card" data-category="circuit">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge circuit-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          AI-ASSISTED
+      <div class="card-art" data-art="retro-stock-predictor" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge circuit-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+            AI-ASSISTED
+          </div>
+          <span class="card-index" aria-hidden="true">01</span>
         </div>
         <h3 class="project-title">RetroStockPredictor</h3>
         <p class="project-desc">Hierarchical multi-agent system for stock market analysis and paper trading. Features technical, sentiment, and fundamental analysis agents coordinated by a CEO agent, with backtesting capabilities and a full web dashboard.</p>
@@ -109,20 +144,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/RetroStockPredictor" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 2. Betting-Agents -->
+    <!-- Betting-Agents -->
     <article class="project-card circuit-card" data-category="circuit">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge circuit-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          AI-ASSISTED
+      <div class="card-art" data-art="betting-agents" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge circuit-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+            AI-ASSISTED
+          </div>
+          <span class="card-index" aria-hidden="true">02</span>
         </div>
         <h3 class="project-title">Betting-Agents</h3>
         <p class="project-desc">AI-powered sports betting prediction system covering NBA, UFC, and MLB. Combines handcoded ML models (Elo ratings, calibration, Kelly criterion) with a Claude powered chat assistant for contextual analysis and edge detection.</p>
@@ -135,20 +173,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/betting-agents" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 3. UFCpredictor -->
+    <!-- UFCpredictor -->
     <article class="project-card forge-card" data-category="forge">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge forge-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          HANDCODED
+      <div class="card-art" data-art="ufc-predictor" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge forge-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg>
+            HANDCODED
+          </div>
+          <span class="card-index" aria-hidden="true">03</span>
         </div>
         <h3 class="project-title">UFCpredictor</h3>
         <p class="project-desc">MMA prediction system that scrapes comprehensive UFC fighter and event data to build win probability models. Custom data pipeline collects fight history, striking stats, and physical attributes for statistical analysis and pre-fight predictions.</p>
@@ -160,20 +201,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/UFCpredictor" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 4. CompressionZ827 -->
+    <!-- CompressionZ827 -->
     <article class="project-card forge-card" data-category="forge">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge forge-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          HANDCODED
+      <div class="card-art" data-art="compression-z827" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge forge-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg>
+            HANDCODED
+          </div>
+          <span class="card-index" aria-hidden="true">04</span>
         </div>
         <h3 class="project-title">CompressionZ827</h3>
         <p class="project-desc">7-bit ASCII compression utility built in C. Packs text by stripping the unused high bit, achieving ~12.5% compression. Features binary file handling with headers, full decompression, and comes with a man page.</p>
@@ -185,20 +229,23 @@
         </div>
         <div class="card-links">
           <a href="#" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 4. LinkedIn Resume Tailor -->
+    <!-- LinkedIn Resume Tailor -->
     <article class="project-card circuit-card" data-category="circuit">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge circuit-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          AI-ASSISTED
+      <div class="card-art" data-art="linkedin-resume-tailor" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge circuit-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+            AI-ASSISTED
+          </div>
+          <span class="card-index" aria-hidden="true">05</span>
         </div>
         <h3 class="project-title">LinkedIn Resume Tailor</h3>
         <p class="project-desc">Chrome extension that auto extracts job details from LinkedIn postings and uses Claude AI to tailor your resume in one click. API keys stay local in the browser for privacy. Costs fractions of a cent per use.</p>
@@ -210,20 +257,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/linkedin-resume-tailor" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 5. rasterizer -->
+    <!-- Rasterizer -->
     <article class="project-card forge-card" data-category="forge">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge forge-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          HANDCODED
+      <div class="card-art" data-art="rasterizer" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge forge-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg>
+            HANDCODED
+          </div>
+          <span class="card-index" aria-hidden="true">06</span>
         </div>
         <h3 class="project-title">Rasterizer</h3>
         <p class="project-desc">Software rasterizer built from scratch in C++. Implements triangle rasterization, Z-buffering, and texture mapping with no GPU APIs — a pure CPU rendering pipeline from first principles.</p>
@@ -235,20 +285,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/rasterizer" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 6. Fee Calculator -->
+    <!-- Fee Calculator -->
     <article class="project-card forge-card" data-category="forge">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge forge-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          HANDCODED
+      <div class="card-art" data-art="fee-calculator" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge forge-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg>
+            HANDCODED
+          </div>
+          <span class="card-index" aria-hidden="true">07</span>
         </div>
         <h3 class="project-title">Fee Calculator</h3>
         <p class="project-desc">Web app that helps small business owners calculate true profit per sale after Stripe/Toast fees, shipping, and taxes. Includes break/even analysis, profit margin charts, and monthly financial projections.</p>
@@ -261,20 +314,23 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/fee-calculator" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 6. Moltbook Assistant -->
+    <!-- Moltbook Assistant -->
     <article class="project-card circuit-card" data-category="circuit">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge circuit-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          AI-ASSISTED
+      <div class="card-art" data-art="moltbook-assistant" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge circuit-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+            AI-ASSISTED
+          </div>
+          <span class="card-index" aria-hidden="true">08</span>
         </div>
         <h3 class="project-title">Moltbook Assistant</h3>
         <p class="project-desc">Autonomous social media chatbot that monitors and responds to DMs using Claude AI with a custom personality. Features conversation logging, a Flask dashboard, and automated daily PDF summary generation.</p>
@@ -287,20 +343,23 @@
         </div>
         <div class="card-links">
           <a href="#" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-    <!-- 7. Portfolio Tracker -->
+    <!-- Portfolio Tracker -->
     <article class="project-card circuit-card" data-category="circuit">
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-badge circuit-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          AI-ASSISTED
+      <div class="card-art" data-art="portfolio-tracker" aria-hidden="true"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-badge circuit-badge">
+            <svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>
+            AI-ASSISTED
+          </div>
+          <span class="card-index" aria-hidden="true">09</span>
         </div>
         <h3 class="project-title">Portfolio Tracker</h3>
         <p class="project-desc">Investment tracking dashboard that monitors politician and hedge fund portfolios. Features Reddit and news sentiment analysis, trend visualization, and customizable widget layouts.</p>
@@ -313,36 +372,42 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/DataBergin/portfolio-tracker" target="_blank" rel="noopener" class="card-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             Source
           </a>
         </div>
       </div>
     </article>
 
-  </section>
+      </div>
+    </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="contact-section">
-    <p class="contact-prompt">
+    <div class="seam-divider" aria-hidden="true"></div>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="sr-only">Contact</h2>
+      <p class="contact-prompt">
       <span class="cmd">jack@portfolio</span>:<span class="flag">~</span>$ contact <span class="flag">--reach-out</span>
     </p>
-    <div class="contact-links">
+      <div class="contact-links">
       <a href="https://github.com/DataBergin" class="contact-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
         GitHub
       </a>
       <a href="https://www.linkedin.com/in/jack-bergin-938823257" class="contact-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
         LinkedIn
       </a>
       <a href="mailto:Jack.bergin@maine.edu" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
         Email
       </a>
-    </div>
-    <p class="footer-note">Built with zero dependencies. Just HTML, CSS, and JS.</p>
-  </section>
+      </div>
+      <p class="footer-note">Built with zero dependencies. Just HTML, CSS, and JS.</p>
+    </section>
+
+  </main>
 
   <!-- ===== VERCEL ANALYTICS ===== -->
   <script defer src="/_vercel/insights/script.js"></script>

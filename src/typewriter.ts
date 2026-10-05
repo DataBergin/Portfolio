@@ -30,6 +30,12 @@ function lineHtml(line: TerminalLine, text: string, withCursor: boolean): string
 export function initTypewriter(): void {
   const body = getById("terminalBody", HTMLElement);
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    body.innerHTML = LINES.map((line) => lineHtml(line, line.text, false)).join("");
+
+    return;
+  }
+
   let lineIdx = 0;
   let charIdx = 0;
   let started = false;

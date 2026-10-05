@@ -1,0 +1,122 @@
+/* ===== PROJECT ILLUSTRATIONS ===== */
+/* Two drawing languages. Forge (hand coded): blueprint line art, butt caps, mitred joins, amber highlights.
+   Circuit (AI-assisted): routed traces and nodes, round caps, cyan highlights. The SVGs in src/graphics
+   only use the classes below, so a card's colours come entirely from the variables on .forge-card / .circuit-card. */
+.forge-card {
+  --a: var(--forge-primary);
+  --a2: var(--forge-amber);
+  --ink: rgba(251, 146, 60, 0.62);
+  --ink-2: rgba(251, 146, 60, 0.22);
+  --art-text: #e0b08a;
+  --art-wash: rgba(249, 115, 22, 0.16);
+  --cap: butt;
+  --join: miter;
+}
+.circuit-card {
+  --a: var(--circuit-primary);
+  --a2: var(--circuit-cyan);
+  --ink: rgba(167, 139, 250, 0.62);
+  --ink-2: rgba(167, 139, 250, 0.22);
+  --art-text: #b9acf0;
+  --art-wash: rgba(139, 92, 246, 0.18);
+  --cap: round;
+  --join: round;
+}
+
+.card-art {
+  --panel: #0c0e14;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--panel);
+  border-bottom: 1px solid var(--hairline);
+}
+.card-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 80% 75% at 50% 45%, #000 25%, transparent 100%);
+}
+.forge-card .card-art::before {
+  background-image:
+    linear-gradient(to right, rgba(249, 115, 22, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.1) 1px, transparent 1px);
+}
+.circuit-card .card-art::before {
+  background-image: radial-gradient(rgba(167, 139, 250, 0.32) 1px, transparent 1.4px);
+}
+.card-art svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* keep every stroke the same weight however far the drawing is scaled */
+.card-art svg * { vector-effect: non-scaling-stroke; }
+
+.card-art .ln,
+.card-art .ln2,
+.card-art .dim,
+.card-art .faint,
+.card-art .node,
+.card-art .node2 {
+  fill: none;
+  stroke-linecap: var(--cap);
+  stroke-linejoin: var(--join);
+}
+.card-art .ln { stroke: var(--a); stroke-width: 1.5; }
+.card-art .ln2 { stroke: var(--a2); stroke-width: 1.5; }
+.card-art .dim { stroke: var(--ink); stroke-width: 1; }
+.card-art .faint { stroke: var(--ink-2); stroke-width: 1; }
+.card-art .dash { stroke-dasharray: 3 4; }
+.card-art .node { fill: var(--panel); stroke: var(--a); stroke-width: 1.5; }
+.card-art .node2 { fill: var(--panel); stroke: var(--a2); stroke-width: 1.5; }
+.card-art .fill { fill: var(--art-wash); stroke: none; }
+.card-art .solid { fill: var(--a); stroke: none; }
+.card-art .solid2 { fill: var(--a2); stroke: none; }
+.card-art .panel { fill: var(--panel); }
+.card-art .tx,
+.card-art .tx2 {
+  fill: var(--art-text);
+  stroke: none;
+  font: 500 7.5px/1 var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.card-art .tx2 { fill: var(--a2); }
+
+/* signal pulses: a short bright dash travelling along a route (the route is a path with pathLength="100") */
+.card-art .pulse {
+  vector-effect: none;
+  fill: none;
+  stroke: var(--a2);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 7 93;
+  animation: art-travel 3.2s linear infinite;
+}
+@keyframes art-travel {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -100; }
+}
+.project-card:hover .card-art .pulse { animation-duration: 1.5s; }
+
+/* nodes that breathe */
+.card-art .beat {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: art-beat 2.8s ease-in-out infinite;
+}
+@keyframes art-beat {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* bars and bodies that grow in when the card is revealed (--i staggers them) */
+.card-art .grow {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.8s var(--ease-out) calc(0.15s + var(--i, 0) * 0.07s);
+}
+.project-card:not(.visible) .card-art .grow { transform: scaleY(0); }

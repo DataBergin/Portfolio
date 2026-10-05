@@ -3,6 +3,12 @@ import { queryAll } from "./dom";
 export function initCounters(): void {
   const counters = queryAll(".stat-number", HTMLElement);
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    for (const c of counters) c.textContent = c.dataset.target ?? c.textContent;
+
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {

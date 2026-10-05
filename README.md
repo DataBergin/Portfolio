@@ -30,8 +30,25 @@ npm run preview   # serve the production build locally
 npm run check     # lint + typecheck
 ```
 
-- `index.html` holds the markup, `src/styles/main.css` the styles, and `src/` the TypeScript (one module per page feature, wired up in `src/main.ts`).
+- `index.html` holds the markup and `src/` the TypeScript (one module per page feature, wired up in `src/main.ts`). Styles live in `src/styles/`, one file per page section, pulled together by `main.css`.
 - Deployed on Vercel. `vercel.json` pins the Vite preset and the `dist/` output directory.
+
+## Design and graphics
+
+The page is split into two visual languages that meet at a seam, matching the two kinds of project it shows:
+
+- **Forge** (orange and amber) is the hand-coded work: blueprint lines, compass arcs, drifting embers, butt line caps.
+- **Circuit** (violet and cyan) is the AI-assisted work: routed traces, nodes and pulses, round line caps.
+
+Where things live:
+
+- `src/hero-art.ts` draws the hero on a `<canvas>`: a forge half and a circuit half with a seeded trace layout, animated pulses and embers. It pauses off-screen and in a hidden tab, and renders a single still frame when the visitor prefers reduced motion.
+- `src/graphics/*.svg` holds one illustration per project (320×200 viewBox). `src/art.ts` inlines each into the card whose `data-art` attribute matches the file name, and `src/styles/art.css` styles them through a small class vocabulary (strokes, fills, pulses, bars that grow when the card scrolls in). They are plain SVG, so they can be edited by hand.
+- `src/styles/tokens.css` is the palette, type and spacing scale. All three text colours pass WCAG AA contrast on every surface.
+- Fonts (Space Grotesk, Inter, JetBrains Mono) are self-hosted from `@fontsource-variable/*`, Latin subset only, so the page makes no third-party font requests.
+- `public/` holds the favicon, the Apple touch icon and `og.png`, the 1200×630 social preview. `og.png` is a screenshot of the hero, so regenerate it when the hero art changes.
+
+Accessibility: a skip link, labelled landmarks, `aria-pressed` filter buttons and visible focus rings. Animation respects `prefers-reduced-motion` in both CSS and script. Without JavaScript the project cards, skills and contact links still show; only the hero canvas and the typed terminal intro need it.
 
 ## Linting with anti-slop
 
