@@ -1,9 +1,26 @@
 # Portfolio
-Fun portfolio for showing off personal projects
+
+Personal portfolio site — [databergin.vercel.app](https://databergin.vercel.app)
+
+Built with [Vite](https://vite.dev) and TypeScript. The page that ships is plain HTML, CSS and JS with no runtime dependencies.
+
+## Projects Featured
+
+| Project | Type | Stack |
+|---|---|---|
+| RetroStockPredictor | AI-Assisted | Python, FastAPI, React, PostgreSQL |
+| Betting-Agents | AI-Assisted | FastAPI, React, TypeScript, Claude AI |
+| UFCpredictor | HandCoded | Python, ML, Web Scraping |
+| CompressionZ827 | HandCoded | C, Systems Programming |
+| Rasterizer | HandCoded | C++, Software Rendering |
+| LinkedIn Resume Tailor | AI-Assisted | Chrome Extension, JavaScript, Claude AI |
+| Fee Calculator | HandCoded | React, Python, Recharts |
+| Moltbook Assistant | AI-Assisted | Python, Claude AI, Flask |
+| Portfolio Tracker | AI-Assisted | FastAPI, React, TypeScript, SQLAlchemy |
 
 ## Development
 
-Built with [Vite](https://vite.dev) and TypeScript. Needs Node 20.19+ or 22.12+.
+Run it locally with Node 20.19+ or 22.12+. Opening `index.html` straight from disk no longer works, because the page loads its script and styles through Vite.
 
 ```bash
 npm install
