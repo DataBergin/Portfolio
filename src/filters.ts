@@ -8,8 +8,13 @@ export function initFilters(): void {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
 
-      for (const b of buttons) b.classList.remove("active");
+      for (const b of buttons) {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      }
+
       btn.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
 
       cards.forEach((card, i) => {
         const category = card.dataset.category;

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="forge"><rect width="16" height="32"/></clipPath>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#0b0d13"/>
+  <!-- forge: compass arcs around the heat, one ember -->
+  <g clip-path="url(#forge)" fill="none" stroke="#fb923c" stroke-width="2.8">
+    <path d="M0 22.5A9.5 9.5 0 0 1 9.5 32"/>
+    <path d="M0 13A19 19 0 0 1 19 32"/>
+  </g>
+  <circle cx="7" cy="9" r="2.3" fill="#fbbf24"/>
+  <!-- circuit: a routed trace ending in a node -->
+  <path d="M32 8.5H25L21 12.5V19" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="21" cy="23.4" r="3.2" fill="#0b0d13" stroke="#06b6d4" stroke-width="2.4"/>
+  <!-- the seam -->
+  <path d="M16 3.5V28.5" stroke="#fff" stroke-opacity=".28" stroke-width="1.2"/>
+</svg>

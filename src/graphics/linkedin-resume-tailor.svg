@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="presentation" focusable="false" aria-hidden="true">
+<!-- frame -->
+<circle cx="12" cy="12" r="2.6" class="node"/>
+<circle cx="308" cy="12" r="2.6" class="node"/>
+<circle cx="12" cy="188" r="2.6" class="node"/>
+<circle cx="308" cy="188" r="2.6" class="node"/>
+<text x="22" y="15.5" class="tx">NET.05</text>
+<text x="20" y="29" class="tx">JOB POST</text>
+<text x="300" y="29" class="tx" text-anchor="end">RESUME</text>
+<!-- the posting -->
+<rect x="20" y="34" width="92" height="116" class="dim" rx="6"/>
+<line x1="20" y1="46" x2="112" y2="46" class="dim"/>
+<circle cx="28" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<circle cx="35" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<circle cx="42" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<rect x="28" y="54" width="50" height="5" class="solid" opacity="0.85"/>
+<rect x="28" y="63" width="34" height="3" class="solid" opacity="0.4"/>
+<rect x="28" y="76" width="74" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="85" width="66" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="94" width="70" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="103" width="56" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="112" width="68" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="121" width="50" height="3" class="solid" opacity="0.32"/>
+<rect x="28" y="130" width="62" height="3" class="solid" opacity="0.32"/>
+<rect x="38" y="85" width="22" height="3" class="solid2" opacity="0.95"/>
+<rect x="42" y="103" width="26" height="3" class="solid2" opacity="0.95"/>
+<rect x="32" y="121" width="20" height="3" class="solid2" opacity="0.95"/>
+<!-- the tailored resume -->
+<rect x="208" y="34" width="92" height="116" class="dim" rx="6"/>
+<line x1="208" y1="46" x2="300" y2="46" class="dim"/>
+<circle cx="216" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<circle cx="223" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<circle cx="230" cy="40" r="1.6" class="solid" opacity="0.6"/>
+<rect x="216" y="54" width="50" height="5" class="solid" opacity="0.85"/>
+<rect x="216" y="63" width="34" height="3" class="solid" opacity="0.4"/>
+<rect x="216" y="76" width="74" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="85" width="66" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="94" width="70" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="103" width="56" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="112" width="68" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="121" width="50" height="3" class="solid" opacity="0.32"/>
+<rect x="216" y="130" width="62" height="3" class="solid" opacity="0.32"/>
+<rect x="226" y="85" width="22" height="3" class="solid2" opacity="0.95"/>
+<rect x="230" y="103" width="26" height="3" class="solid2" opacity="0.95"/>
+<rect x="220" y="121" width="20" height="3" class="solid2" opacity="0.95"/>
+<path d="M211 86.5l1.8 2l3.2 -3.6" class="ln2"/>
+<path d="M211 104.5l1.8 2l3.2 -3.6" class="ln2"/>
+<path d="M211 122.5l1.8 2l3.2 -3.6" class="ln2"/>
+<!-- Claude in the middle -->
+<path d="M112 92H145" class="dim"/>
+<path d="M175 92H208" class="dim"/>
+<path d="M112 92H145" class="pulse" pathLength="100" style="animation-delay:0s"/>
+<path d="M175 92H208" class="pulse" pathLength="100" style="animation-delay:-1.4s"/>
+<circle cx="112" cy="92" r="3" class="node"/>
+<circle cx="208" cy="92" r="3" class="node"/>
+<circle cx="160" cy="92" r="21" class="faint beat"/>
+<circle cx="160" cy="92" r="15" class="node"/>
+<path d="M160 84.5Q160 92 167.5 92Q160 92 160 99.5Q160 92 152.5 92Q160 92 160 84.5Z" class="solid2"/>
+<!-- the key never leaves the browser -->
+<text x="160" y="41" class="tx" text-anchor="middle">LOCAL KEY</text>
+<rect x="154" y="52" width="12" height="9" class="ln2" rx="1.5"/>
+<path d="M156.5 52V49.5a3.5 3.5 0 0 1 7 0V52" class="ln2"/>
+<path d="M160 61V71" class="dim dash"/>
+<!-- one click -->
+<rect x="130" y="150" width="60" height="16" class="ln2" rx="8"/>
+<text x="160" y="160.6" class="tx2" text-anchor="middle">1 CLICK</text>
+</svg>

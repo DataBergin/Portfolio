@@ -1,0 +1,283 @@
+/* ===== WORK ===== */
+.work { position: relative; }
+
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem var(--gutter);
+  background: rgba(10, 11, 15, 0.85);
+  /* Keep the -webkit- twin first: Lightning CSS drops the standard property when it comes before it */
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--hairline);
+  transition: box-shadow 0.3s ease;
+}
+.filter-bar.scrolled { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4); }
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.filter-btn:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text-primary);
+}
+.filter-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--text-primary);
+}
+.filter-btn.forge-btn.active {
+  background: var(--forge-dim);
+  border-color: var(--forge-border);
+  color: var(--forge-glow);
+}
+.filter-btn.circuit-btn.active {
+  background: var(--circuit-dim);
+  border-color: var(--circuit-border);
+  color: var(--circuit-glow);
+}
+.filter-count {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+.filter-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===== SECTION HEADER ===== */
+.section-label {
+  text-align: center;
+  padding: 4.5rem var(--gutter) 2.25rem;
+}
+.section-label h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+.section-label p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 0.7rem;
+}
+
+/* ===== PROJECT GRID ===== */
+/* the skip link and anchors land below the sticky filter bar */
+.projects-section {
+  scroll-margin-top: 4.5rem;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0.5rem var(--gutter) 5.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 1.5rem;
+}
+
+/* ===== PROJECT CARDS ===== */
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-card.hiding {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* a thin accent across the top edge: forge amber-to-orange, circuit cyan-to-violet */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 2;
+  background: linear-gradient(90deg, var(--a), var(--a2));
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.95rem;
+}
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+}
+.card-badge svg { width: 12px; height: 12px; }
+.forge-badge {
+  background: var(--forge-dim);
+  color: var(--forge-glow);
+  border: 1px solid var(--forge-border);
+}
+.circuit-badge {
+  background: var(--circuit-dim);
+  color: var(--circuit-glow);
+  border: 1px solid var(--circuit-border);
+}
+.card-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  margin-bottom: 1.2rem;
+}
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.forge-card .tech-tag { background: rgba(249, 115, 22, 0.06); border-color: rgba(249, 115, 22, 0.16); }
+.circuit-card .tech-tag { background: rgba(139, 92, 246, 0.07); border-color: rgba(139, 92, 246, 0.18); }
+.card-links {
+  display: flex;
+  gap: 1rem;
+}
+.card-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+.card-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: width 0.3s var(--ease-out);
+}
+.card-link:hover::after { width: 100%; }
+.forge-card .card-link:hover { color: var(--forge-glow); }
+.forge-card .card-link::after { background: var(--forge-primary); }
+.circuit-card .card-link:hover { color: var(--circuit-glow); }
+.circuit-card .card-link::after { background: var(--circuit-primary); }
+.card-link svg { width: 14px; height: 14px; }
+
+/* Card hover effects */
+.forge-card:hover {
+  border-color: var(--forge-border);
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.08), 0 0 0 1px rgba(249, 115, 22, 0.1);
+  transform: translateY(-3px);
+}
+.circuit-card:hover {
+  border-color: var(--circuit-border);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08), 0 0 0 1px rgba(139, 92, 246, 0.1);
+  transform: translateY(-3px);
+}
+.project-card.visible:hover { transform: translateY(-3px); }
+
+@media (max-width: 767px) {
+  .filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .section-label { padding-top: 3.25rem; }
+  .card-body { padding: 1.1rem 1.2rem 1.25rem; }
+  .project-title { font-size: 1.25rem; }
+}
+/* all three pills fit a 360px screen without scrolling */
+@media (max-width: 479px) {
+  .filter-bar {
+    justify-content: center;
+    gap: 0.4rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .filter-btn {
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
+  }
+  .filter-btn svg { display: none; }
+  .filter-count { padding: 0.1rem 0.4rem; }
+}
+@media (max-width: 719px) {
+  .projects-section {
+    grid-template-columns: minmax(0, 480px);
+    justify-content: center;
+  }
+}

@@ -1,16 +1,17 @@
+import { initArt } from "./art";
 import { getById } from "./dom";
 import { initCounters } from "./counters";
 import { initFilterBarScroll } from "./filter-bar";
 import { initFilters } from "./filters";
+import { HeroArt } from "./hero-art";
 import { initParallax } from "./parallax";
-import { ParticleField } from "./particle-field";
 import { initCardStagger, initScrollAnimations } from "./scroll-animations";
 import { initSmoothScroll } from "./smooth-scroll";
 import { initTypewriter } from "./typewriter";
 
 function start(): void {
-  const pf = new ParticleField(getById("heroCanvas", HTMLCanvasElement));
-  pf.animate();
+  new HeroArt(getById("heroCanvas", HTMLCanvasElement), getById("hero", HTMLElement));
+  initArt();
 
   initScrollAnimations();
   initCardStagger();

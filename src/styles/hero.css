@@ -1,0 +1,202 @@
+/* ===== HERO ===== */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The two halves of the idea: forge (hand coded) on the left, circuit (AI-assisted) on the right. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+.hero-forge,
+.hero-circuit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+.hero-forge {
+  left: 0;
+  background:
+    radial-gradient(ellipse 85% 75% at 0% 100%, rgba(249, 115, 22, 0.22), transparent 68%),
+    radial-gradient(ellipse 45% 38% at 0% 100%, rgba(251, 191, 36, 0.12), transparent 72%);
+}
+/* Blueprint grid with plotted points at the crossings, fading away from the heat. */
+.hero-forge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(251, 146, 60, 0.5) 1.2px, transparent 1.9px),
+    linear-gradient(to right, rgba(249, 115, 22, 0.17) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.17) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: 28px 28px, 0 0, 0 0;
+  mask-image: radial-gradient(ellipse 115% 105% at 0% 100%, #000 0%, transparent 80%);
+}
+.hero-circuit {
+  right: 0;
+  background:
+    radial-gradient(ellipse 85% 75% at 100% 0%, rgba(139, 92, 246, 0.22), transparent 68%),
+    radial-gradient(ellipse 45% 38% at 100% 0%, rgba(6, 182, 212, 0.12), transparent 72%);
+}
+
+/* The seam where the two meet, straight through the name. */
+.hero-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-0.5px);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.16) 20%, rgba(255, 255, 255, 0.16) 80%, transparent);
+}
+.hero-seam::before,
+.hero-seam::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--bg-primary);
+}
+.hero-seam::before { top: 20%; }
+.hero-seam::after { bottom: 20%; }
+
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  /* keep the artwork calm behind the type */
+  mask-image: radial-gradient(ellipse 50% 44% at 50% 50%, rgba(0, 0, 0, 0.3), #000 100%);
+}
+
+/* melt into the page below */
+#hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22vh;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem var(--gutter);
+}
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 19vw, 13.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  position: relative;
+  display: inline-block;
+}
+.hero-name .forge-half {
+  background: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-name .circuit-half {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-name::after {
+  content: '';
+  position: absolute;
+  bottom: -0.05em;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316 0%, #f97316 50%, #8b5cf6 50%, #8b5cf6 100%);
+  opacity: 0.7;
+}
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  color: var(--text-secondary);
+  margin-top: 1.75rem;
+  font-weight: 400;
+}
+.hero-tagline {
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  color: var(--text-primary);
+  margin-top: 1.25rem;
+  line-height: 1.55;
+  max-width: 34ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem;
+  margin-top: 2.75rem;
+}
+.stat { text-align: center; }
+.stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.forge-stat .stat-number { color: var(--forge-primary); }
+.circuit-stat .stat-number { color: var(--circuit-primary); }
+.stat-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+.stat-divider {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(180deg, var(--forge-primary), var(--circuit-primary));
+  opacity: 0.5;
+}
+.scroll-cta {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  animation: float 2.5s ease-in-out infinite;
+}
+.scroll-cta svg { width: 24px; height: 24px; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (max-width: 767px) {
+  .hero-stats { gap: 1.4rem; }
+  .stat-number { font-size: 2.6rem; }
+}
